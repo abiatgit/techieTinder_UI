@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Body from "./components/Body";
-import About from "./components/About";
 import Navbar from "./components/NavBar";
-import Contact from "./components/Contact";
-import Login from "./components/Login"
+import Login from "./components/Login";
 import Feed from "./components/Feed";
+import Settings from "./components/Settings";
+import Profile from "./components/Profile"
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Body />}>
-            <Route path="" element={< Feed/>} />
-            <Route path="about" element={<About />} />
+            <Route path="/" element={<Feed />} />
+            <Route path="profile" element={<Profile/>}/>
+            <Route path="settings" element={<Settings />} />
             <Route path="login" element={<Login />} />
-            <Route path="contact" element={<Contact />} />
           </Route>
           <Route path="*" element={<h2>404 Not Found</h2>} />
         </Routes>
