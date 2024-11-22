@@ -8,18 +8,26 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("ancyrevi@gmail.com");
   const [password, setPassword] = useState("Blessing_123");
- const dispatch=useDispatch()
- const navigate=useNavigate()
+  const [error,useError] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleClick = async () => {
     try {
-      const res =await  axios.post(BaseURL+"/login",{
-        email: email,
-        password: password,
-      },{withCredentials:true});
-      dispatch(addUser(res.data))
-      return navigate("/")
+      const res = await axios.post(
+        BaseURL + "/login",
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data));
+
+      return navigate("/");
     } catch (err) {
-      console.log(err);
+
+      useError(err?.response?.data?.message ||"Something Went Wrong")
+   
     }
   };
 
@@ -48,9 +56,14 @@ const Login = () => {
             className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           />
         </label>
-        <button className="btn btn-success w-full py-2 mt-4 rounded hover:bg-green-600 transition duration-200" onClick={handleClick}>
+       <p className="text-red-500">{error}</p>
+        <button
+          className="btn btn-success w-full py-2 mt-4 rounded hover:bg-green-600 transition duration-200"
+          onClick={handleClick}
+        >
           Login
         </button>
+       
       </div>
     </div>
   );
