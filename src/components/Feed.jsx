@@ -1,11 +1,33 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { BaseURL } from "../../utils/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { addFeed } from "../../utils/feedSlice";
+import FeedCard from "./FeedCard";
 
 const Feed = () => {
- return(
-    <div>
-        <h1>Feed</h1>
-    </div>
- )
-}
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const feed = useSelector((store) => store.feed);
+  console.log(feed)
+  const getFeed = async () => {
+    try {
+      const res = await axios.get(BaseURL + "/user/feed", {
+        withCredentials: true,
+      });
+      dispatch(addFeed(res.data));
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    if (!feed) {
+      getFeed();
+    }
+  }, [feed]);
 
-export default Feed
+  return <div>{feed && <FeedCard user={feed.data[1]} />}</div>;
+};
+
+export default Feed;
