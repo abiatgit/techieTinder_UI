@@ -3,8 +3,9 @@ import Body from "./components/Body";
 import Navbar from "./components/NavBar";
 import Login from "./components/Login";
 import Feed from "./components/Feed";
-import Settings from "./components/Settings";
+import Connection from "./components/Connection";
 import Profile from "./components/Profile"
+
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path="/" element={<Body />}>
             <Route path="/" element={<Feed />} />
             <Route path="profile" element={<Profile/>}/>
-            <Route path="settings" element={<Settings />} />
+            <Route path="connection" element={<Connection/>} />
             <Route path="login" element={<Login />} />
           </Route>
           <Route path="*" element={<h2>404 Not Found</h2>} />

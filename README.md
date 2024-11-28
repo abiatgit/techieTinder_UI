@@ -16,4 +16,23 @@
 - CORS- install cors in backend =>add middileware to with configuration:orgin,credentiol :true
 - When ever you'r making a api call pass axios=>{"link",{"withCredentials:true"}}
 
+- install react -redux +@redux/toolkit - 
+- configure store => Provider => createSlice => add reducer to store
+- add redux devtool in browser 
+- login and see if your data is coming properly in the store
+- Navbar should update as soon as user login 
+- Refactor our code to add constants file + crate a components folder 
+- you should not be access other route without login 
+- if token is not present ,redirect user to login page 
+- Logout feature
+- Get the feed and add the feed in the store 
+- Build the user card on feed
+- Edit profile feature
+- Show toast message on save of profile 
+
+- see all my connections
+- Route to connection page 
+- creata connnection component
+- link form navbare to connections
+
 

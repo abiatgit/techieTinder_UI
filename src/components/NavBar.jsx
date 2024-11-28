@@ -62,7 +62,7 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link to="settings">Settings</Link>
+                <Link to="connection">Connection</Link>
               </li>
               <li>
                 <button onClick={handleLogOut}>logout</button>

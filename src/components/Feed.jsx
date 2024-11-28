@@ -9,7 +9,6 @@ const Feed = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const feed = useSelector((store) => store.feed);
-  console.log(feed)
   const getFeed = async () => {
     try {
       const res = await axios.get(BaseURL + "/user/feed", {
