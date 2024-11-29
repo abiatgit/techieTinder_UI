@@ -26,7 +26,7 @@ const Feed = () => {
     }
   }, [feed]);
 
-  return <div>{feed && <FeedCard user={feed.data[1]} />}</div>;
+  return <div>{feed && <FeedCard user={feed.data[2]} />}</div>;
 };
 
 export default Feed;

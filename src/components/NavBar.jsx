@@ -47,7 +47,7 @@ function Navbar() {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src={user.data.photoUrl}
+                  src={user.data.photoUrl ||"https://imgs.search.brave.com/1znjoGYkHSPtn4cPUifMl98lGSgUoUryIqqFdX62pmI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhjL2Q2/LzFhLzhjZDYxYWU5/ZjRmYmMzMDA0YTZj/ZjY2MGU2M2IwNDQ2/LmpwZw"}
                 />
               </div>
             </div>
