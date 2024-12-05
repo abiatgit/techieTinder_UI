@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Feed from "./components/Feed";
 import Connection from "./components/Connection";
 import Profile from "./components/Profile"
+import  Request from "./components/Request"
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="profile" element={<Profile/>}/>
             <Route path="connection" element={<Connection/>} />
             <Route path="login" element={<Login />} />
+            <Route path="request" element={<Request/>} />
           </Route>
           <Route path="*" element={<h2>404 Not Found</h2>} />
         </Routes>

@@ -11,7 +11,7 @@ const Feed = () => {
   const feed = useSelector((store) => store.feed);
   const getFeed = async () => {
     try {
-      const res = await axios.get(BaseURL + "/user/feed", {
+      const res = await axios.get(BaseURL +"/user/feed", {
         withCredentials: true,
       });
       dispatch(addFeed(res.data));
@@ -26,7 +26,7 @@ const Feed = () => {
     }
   }, [feed]);
 
-  return <div>{feed && <FeedCard user={feed.data[2]} />}</div>;
+  return <div>{feed && <FeedCard user={feed.data[0]} />}</div>;
 };
 
 export default Feed;

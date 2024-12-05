@@ -1,7 +1,7 @@
 import React from "react";
 
 const ConnectionCard = (user) => {
-  console.log(user);
+
   const { firstName, lastName, photoUrl,about } = user.prop;
   return (
     <div className="relative max-w-xl mx-auto mt-16 p-4">
