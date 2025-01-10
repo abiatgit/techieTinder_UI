@@ -3,10 +3,10 @@ import axios from "axios";
 import { BaseURL } from "../../utils/constant";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("ancyrevi@gmail.com");
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState("Blessing_123");
   const [error,useError] = useState('');
   const dispatch = useDispatch();
@@ -63,6 +63,7 @@ const Login = () => {
         >
           Login
         </button>
+        <p className=" cursor-pointer"><Link to={"/signup"}>signup</Link></p>
        
       </div>
     </div>

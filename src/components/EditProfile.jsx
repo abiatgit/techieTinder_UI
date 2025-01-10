@@ -45,99 +45,110 @@ const EditProfile = (user) => {
   const [showToasts, setShowToast] = useState(false);
 
   return (
-    <div className="flex justify-center items-center my-5">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-xs mx-5">
-        <h2 className="text-xl font-semibold text-center mb-4">Edit Profle</h2>
-
+    <div className="flex justify-center items-start my-5 space-x-6">
+      {/* Profile Edit Form */}
+      <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-6">Edit Profile</h2>
+  
+        {/* First Name */}
         <label className="block mb-4">
           <span className="label-text text-gray-700">First Name</span>
           <input
-            type="email"
+            type="text"
             value={firstName}
             onChange={(v) => setFirstName(v.target.value)}
-            placeholder="Enter your email"
+            placeholder="Enter your first name"
             className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           />
         </label>
-
+  
+        {/* Last Name */}
         <label className="block mb-4">
           <span className="label-text text-gray-700">Last Name</span>
           <input
-            type="email"
+            type="text"
             value={lastName}
             onChange={(v) => setLastName(v.target.value)}
+            placeholder="Enter your last name"
             className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           />
         </label>
-
+  
+        {/* Gender */}
         <label className="block mb-4">
           <span className="label-text text-gray-700">Gender</span>
           <select
-            
+            value={gender}
             onChange={(v) => setGender(v.target.value)}
             className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           >
-
             <option value="">Select Gender</option>
-            <option value={gender}>Male</option>
-            <option value={gender}>Female</option>
-            <option value={gender}>Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </label>
-
+  
+        {/* Age */}
         <label className="block mb-4">
           <span className="label-text text-gray-700">Age</span>
           <input
             type="number"
             value={age}
             onChange={(v) => setAge(Number(v.target.value))}
+            placeholder="Enter your age"
             className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           />
         </label>
-
+  
+        {/* Photo URL */}
         <label className="block mb-4">
-          <span className="label-text text-gray-700">PhotoUrl</span>
+          <span className="label-text text-gray-700">Photo URL</span>
           <input
-            type="email"
+            type="url"
             value={photoUrl}
             onChange={(v) => setPhotoUrl(v.target.value)}
-            placeholder="Enter your email"
+            placeholder="Enter a valid photo URL"
             className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           />
         </label>
-
+  
+        {/* About Me */}
         <label className="block mb-4">
-          <span className="label-text text-gray-700">About me</span>
+          <span className="label-text text-gray-700">About Me</span>
           <textarea
-            type="text"
             value={about}
             onChange={(v) => setAbout(v.target.value)}
-            placeholder="Type here"
-            className="iput input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none input-lg focus:ring focus:ring-blue-300"
+            placeholder="Tell us about yourself"
+            className="input input-bordered w-full my-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
           />
         </label>
-
-        <p className="text-red-500"></p>
+  
+        {/* Save Button */}
         <button
           className="btn btn-success w-full py-2 mt-4 rounded hover:bg-green-600 transition duration-200"
           onClick={saveProfile}
         >
           Save Profile
         </button>
-      </div>
-
-      {showToasts && (
-        <div className="toast toast-top toast-center">
-          <div className="alert alert-success">
-            <span>Profile successfully updated.</span>
+  
+        {/* Toast Message */}
+        {/* showToasts && */}
+        { showToasts &&(
+          <div className="toast toast-top toast-center mt-4 fixed z-50">
+            <div className="alert alert-success">
+              <span>Profile successfully updated.</span>
+            </div>
           </div>
-        </div>
-      )}
-
+        )}
+      </div>
+  
+      {/* Preview Card */}
       <div className="mx-6">
         <FeedCard user={{ firstName, lastName, photoUrl, about }} />
       </div>
     </div>
   );
+  
 };
 export default EditProfile;
